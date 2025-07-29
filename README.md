@@ -1,73 +1,127 @@
+
 # 🎓 RG Quiz App - Your Knowledge Navigator
 
-![Quiz App Screenshot](https://via.placeholder.com/800x400?text=RG+Quiz+App+Screenshot)
+![App Banner](https://via.placeholder.com/1200x400?text=RG+Quiz+App+Banner)
 
 Welcome to the RG Quiz App, an interactive educational platform designed to help students test their knowledge and receive instant, AI-powered explanations for challenging questions.
 
 ## 🚀 Live Application
-Experience the app live:  
+Experience the app now:  
 👉 [https://rg-quiz-vercel-app.vercel.app/](https://rg-quiz-vercel-app.vercel.app/)
 
 ## ✨ Key Features
-- **Interactive Quizzes**: Multiple-choice questions across various subjects
-- **Instant Feedback**: Visual cues for correct/incorrect answers
-- **AI-Powered Explanations**: Detailed explanations via Google Gemini API
-- **Progress Tracking**: Real-time score monitoring
-- **Responsive Design**: Works on all devices
-- **PWA Support**: Installable for offline use
+| Feature | Description |
+|---------|-------------|
+| 📝 Interactive Quizzes | Multiple-choice questions across various subjects and grade levels |
+| ✅ Instant Feedback | Visual cues with celebrations for correct answers |
+| 🤖 AI-Powered Tutor | Deep explanations via Google Gemini API |
+| 📊 Progress Tracking | Real-time score monitoring |
+| 📱 Responsive Design | Works perfectly on all devices |
+| ⚡ PWA Support | Installable for offline use |
+
+## 💡 How to Use
+1. **Access the App**: Open [https://rg-quiz-vercel-app.vercel.app/](https://rg-quiz-vercel-app.vercel.app/)
+2. **Start Quiz**:
+   - Select your class, term, subject, and topic
+   - Click "Start Quiz"
+3. **Answer Questions**:
+   - Read each question carefully
+   - Select your answer
+   - Get immediate feedback
+4. **Get Explanations**:
+   - Basic explanation appears automatically
+   - Click "Still not clear?" for AI-powered deep explanation
+5. **Complete Quiz**:
+   - View your final score
+   - Option to save results with your name
 
 ## 🛠️ Technology Stack
 ### Frontend
-- React + Vite
-- React Bootstrap
-- Framer Motion (animations)
-- Howler.js (sound effects)
-- VitePWA (PWA capabilities)
+- **Framework**: React + Vite
+- **UI**: React Bootstrap + Framer Motion
+- **Audio**: Howler.js
+- **PWA**: VitePWA
+- **Markdown**: React Markdown
 
 ### Backend
-- Node.js + Express
-- Google Gemini API
-- Serverless functions
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **AI**: Google Gemini API
+- **Middleware**: CORS, dotenv
 
 ### Deployment
-- Vercel (frontend + backend)
-- GitHub (version control)
+- **Platform**: Vercel
+- **CI/CD**: GitHub Integration
 
 ## 📂 Project Structure
+```text
 rg-quiz-project-root/
-├── backend/ # Serverless functions
-├── frontend/ # React application
-├── .gitignore
-└── vercel.json # Vercel config
+├── backend/
+│   ├── api/          # Serverless functions
+│   ├── .env          # Environment variables
+│   └── package.json  # Backend dependencies
+├── frontend/
+│   ├── public/       # Static assets
+│   ├── src/          # React components
+│   └── package.json  # Frontend dependencies
+└── vercel.json       # Deployment config
+```
 
-## ⚙️ Local Setup
-1. Clone repo:
-   ```bash
-   git clone https://github.com/joshuaafolabi80/rg-quiz-vercel-app.git
-   cd rg-quiz-vercel-app
+## ⚙️ Local Development
+### Prerequisites
+- Node.js (v18+)
+- Google Gemini API key
 
-### Install dependencies:
+### Setup
+```bash
+# Clone repository
+git clone https://github.com/joshuaafolabi80/rg-quiz-vercel-app.git
+cd rg-quiz-vercel-app
+
+# Install dependencies
 cd frontend & npm install
 cd ../backend & npm install
 
-### Create .env in backend:
-GEMINI_API_KEY=your_api_key_here
+# Configure environment
+echo "GEMINI_API_KEY=your_key_here" > backend/.env
+```
 
-### Run development servers:
-### Terminal 1 (backend)
+### Running Locally
+```bash
+## Terminal 1 - Backend
 cd backend & node local-dev-server.js
 
-### Terminal 2 (frontend)
+## Paste the following code into local-dev-server.js:
+
+require('dotenv').config({ path: '.env' });
+if (!process.env.GEMINI_API_KEY) {
+  console.error("CRITICAL ERROR: GEMINI_API_KEY is still not loaded from .env in local-dev-server.js!");
+} else {
+  console.log("GEMINI_API_KEY successfully loaded from .env for local development.");
+}
+const app = require('./api');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Local backend server running on http://localhost:${PORT}`);
+  console.log(`Gemini API Key status in app: ${process.env.GEMINI_API_KEY ? 'Loaded' : 'MISSING!'}`);
+});
+
+
+## Terminal 2 - Frontend
 cd frontend & npm run dev
+```
 
-🎥 Demo Walkthrough
-1. Select your class, term, subject, and topic
-2. Answer quiz questions
-3. View instant feedback
-4. Click "Still not clear?" for AI-powered explanations
-5. Complete quiz to see final score
+Access the app at: [http://localhost:5173](http://localhost:5173)
 
-🙏 Acknowledgements
-Google Gemini API for AI capabilities
-Vercel for seamless deployment
-React and Node.js communities
+## 🚀 Deployment
+1. Set up Vercel project
+2. Add `GEMINI_API_KEY` to environment variables
+3. Connect GitHub repository
+4. Deploy!
+
+Automatic deployments are triggered on pushes to `main` branch.
+
+## 🙏 Acknowledgements
+- **Google** for the Gemini API
+- **Vercel** for seamless deployment
+- **Open Source Communities** for amazing tools

@@ -1,0 +1,6 @@
+.vercel
+# Ignore local development server script
+backend/local-dev-server.js
+
+# Ignore environment variable files
+backend/.env

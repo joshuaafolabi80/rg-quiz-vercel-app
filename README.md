@@ -47,18 +47,18 @@ rg-quiz-project-root/
    cd rg-quiz-vercel-app
 
 ### Install dependencies:
-cd frontend && npm install
-cd ../backend && npm install
+cd frontend & npm install
+cd ../backend & npm install
 
 ### Create .env in backend:
 GEMINI_API_KEY=your_api_key_here
 
 ### Run development servers:
-# Terminal 1 (backend)
-cd backend && node local-dev-server.js
+### Terminal 1 (backend)
+cd backend & node local-dev-server.js
 
-# Terminal 2 (frontend)
-cd frontend && npm run dev
+### Terminal 2 (frontend)
+cd frontend & npm run dev
 
 🎥 Demo Walkthrough
 1. Select your class, term, subject, and topic
